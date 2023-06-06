@@ -1,4 +1,5 @@
 import React from 'react';
+import QuestionItem from './QuestionItem';
 
 function QuestionList({ questions }) {
   return (
@@ -6,9 +7,13 @@ function QuestionList({ questions }) {
       <h1>Quiz Questions</h1>
       <ul>
         {/* display QuestionItem components here after fetching */}
-        {questions.map((question) => {
-          return <li key={question.id}>{question.prompt}</li>;
-        })}
+        {questions.map((question) => (
+          <QuestionItem
+            key={question.id}
+            question={question}
+          />
+        ))}
+        ;
       </ul>
     </section>
   );
