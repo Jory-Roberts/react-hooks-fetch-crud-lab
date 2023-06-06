@@ -7,9 +7,9 @@ function QuestionList({ questions, deleteQuestion }) {
       <h1>Quiz Questions</h1>
       <ul>
         {/* display QuestionItem components here after fetching */}
-        {questions.map((question) => (
+        {questions.map((question, index) => (
           <QuestionItem
-            key={question.id}
+            key={index}
             question={question}
             deleteQuestion={deleteQuestion}
           />
