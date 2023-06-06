@@ -19,10 +19,34 @@ function App() {
       .then((questions) => setQuestions(questions));
   }, []);
 
+  function deleteQuestion(questionId) {
+    fetch(`http://localhost:4000/questions/${questionId}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (response.ok) {
+          const updatedQuestions = questions.filter((question) => question.id !== questionId);
+          setQuestions(updatedQuestions);
+        } else {
+          console.log('Error:', response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.log('Error:', error);
+      });
+  }
+
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
-      {page === 'Form' ? <QuestionForm addQuestion={addQuestion} /> : <QuestionList questions={questions} />}
+      {page === 'Form' ? (
+        <QuestionForm addQuestion={addQuestion} />
+      ) : (
+        <QuestionList
+          questions={questions}
+          deleteQuestion={deleteQuestion}
+        />
+      )}
     </main>
   );
 }

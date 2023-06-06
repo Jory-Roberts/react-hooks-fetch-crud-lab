@@ -1,7 +1,7 @@
 import React from 'react';
 import QuestionItem from './QuestionItem';
 
-function QuestionList({ questions }) {
+function QuestionList({ questions, deleteQuestion }) {
   return (
     <section>
       <h1>Quiz Questions</h1>
@@ -11,6 +11,7 @@ function QuestionList({ questions }) {
           <QuestionItem
             key={question.id}
             question={question}
+            deleteQuestion={deleteQuestion}
           />
         ))}
         ;

@@ -67,12 +67,12 @@
       "correctIndex": 1
     },
     {
-      "prompt": "What is 2+2?",
+      "prompt": "What is 10 + 10?",
       "answers": [
-        "4",
-        "16",
-        "2",
-        "26"
+        "20",
+        "45",
+        "65",
+        "70"
       ],
       "correctIndex": 0,
       "id": 7
